@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 920" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475430"/>
+    </marker>
+    <marker id="arrowDashed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#92a35e"/>
+    </marker>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fbfaf3"/>
+      <stop offset="100%" stop-color="#f4f6ec"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.18"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="920" fill="url(#bgGrad)"/>
+
+  <text x="600" y="40" text-anchor="middle" font-size="22" font-weight="800" fill="#181b14">
+    TalentScout - Single-Agent Architecture
+  </text>
+  <text x="600" y="62" text-anchor="middle" font-size="13" fill="#6b6f60">
+    JD text  -&gt;  Parse  -&gt;  Retrieve  -&gt;  Score &amp; Explain  -&gt;  Ranked shortlist
+  </text>
+
+  <g filter="url(#softShadow)">
+    <rect x="500" y="90" width="200" height="56" rx="14" fill="#181b14"/>
+    <text x="600" y="115" text-anchor="middle" font-size="14" font-weight="700" fill="#f7f5ed">RECRUITER</text>
+    <text x="600" y="133" text-anchor="middle" font-size="11" fill="#cdd9a8">Pastes JD - clicks Scout</text>
+  </g>
+  <line x1="600" y1="146" x2="600" y2="170" stroke="#475430" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <g filter="url(#softShadow)">
+    <rect x="320" y="172" width="560" height="84" rx="16" fill="#ffffff" stroke="#e3dfcf"/>
+    <text x="600" y="198" text-anchor="middle" font-size="13" font-weight="700" fill="#475430">REACT FRONTEND</text>
+    <text x="600" y="216" text-anchor="middle" font-size="11" fill="#6b6f60">Vite - TypeScript - TailwindCSS  -  http://localhost:5173</text>
+    <g font-size="10" fill="#3a4427">
+      <rect x="360" y="226" width="120" height="20" rx="10" fill="#e6ecd3"/>
+      <text x="420" y="240" text-anchor="middle">JDInput card</text>
+      <rect x="495" y="226" width="130" height="20" rx="10" fill="#e6ecd3"/>
+      <text x="560" y="240" text-anchor="middle">ParsedJDCard</text>
+      <rect x="640" y="226" width="180" height="20" rx="10" fill="#e6ecd3"/>
+      <text x="730" y="240" text-anchor="middle">CandidateCard list</text>
+    </g>
+  </g>
+
+  <line x1="600" y1="256" x2="600" y2="288" stroke="#475430" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="615" y="260" width="220" height="20" rx="10" fill="#181b14"/>
+  <text x="725" y="274" text-anchor="middle" font-size="11" font-weight="600" fill="#f7f5ed">POST /api/scout { jd, top_k }</text>
+
+  <g>
+    <rect x="80" y="290" width="1040" height="540" rx="20" fill="#ffffff" stroke="#cdd9a8" stroke-width="2"/>
+    <text x="100" y="316" font-size="13" font-weight="800" fill="#475430" letter-spacing="2">FASTAPI BACKEND  -  PYTHON 3.10  -  :8000</text>
+    <text x="100" y="332" font-size="11" fill="#6b6f60">main.py - endpoints: /api/health  /api/candidates  /api/scout</text>
+
+    <rect x="105" y="345" width="990" height="465" rx="16" fill="#fbfaf3" stroke="#cdd9a8" stroke-dasharray="4 3"/>
+    <text x="125" y="368" font-size="12" font-weight="800" fill="#3a4427" letter-spacing="1.5">TALENT SCOUTING AGENT  (agents/scout.py)</text>
+
+    <g filter="url(#softShadow)">
+      <rect x="135" y="385" width="290" height="180" rx="14" fill="#ffffff" stroke="#e3dfcf"/>
+      <rect x="135" y="385" width="290" height="32" rx="14" fill="#475430"/>
+      <text x="155" y="406" font-size="12" font-weight="800" fill="#f7f5ed">STAGE 1 - JD PARSER</text>
+      <text x="380" y="406" text-anchor="end" font-size="10" fill="#cdd9a8">jd_parser.py</text>
+
+      <rect x="155" y="430" width="120" height="44" rx="10" fill="#e6ecd3" stroke="#92a35e"/>
+      <text x="215" y="447" text-anchor="middle" font-size="11" font-weight="700" fill="#3a4427">Gemini LLM</text>
+      <text x="215" y="463" text-anchor="middle" font-size="9" fill="#6b6f60">structured JSON</text>
+
+      <path d="M 215 474 v 16" stroke="#475430" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <text x="225" y="488" font-size="9" fill="#6b6f60" font-style="italic">if fails</text>
+
+      <rect x="155" y="494" width="120" height="44" rx="10" fill="#fbfaf3" stroke="#cdd9a8"/>
+      <text x="215" y="511" text-anchor="middle" font-size="11" font-weight="700" fill="#3a4427">Regex fallback</text>
+      <text x="215" y="525" text-anchor="middle" font-size="9" fill="#6b6f60">~120 skill keywords</text>
+
+      <path d="M 285 452 h 30 v 70 h 30" stroke="#475430" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+      <rect x="295" y="494" width="115" height="44" rx="10" fill="#181b14"/>
+      <text x="352" y="513" text-anchor="middle" font-size="11" font-weight="700" fill="#f7f5ed">ParsedJD</text>
+      <text x="352" y="527" text-anchor="middle" font-size="9" fill="#cdd9a8">role - skills - loc</text>
+    </g>
+
+    <path d="M 425 475 h 30" stroke="#475430" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <g filter="url(#softShadow)">
+      <rect x="455" y="385" width="290" height="180" rx="14" fill="#ffffff" stroke="#e3dfcf"/>
+      <rect x="455" y="385" width="290" height="32" rx="14" fill="#475430"/>
+      <text x="475" y="406" font-size="12" font-weight="800" fill="#f7f5ed">STAGE 2 - RETRIEVER</text>
+      <text x="725" y="406" text-anchor="end" font-size="10" fill="#cdd9a8">retriever.py + embeddings.py</text>
+
+      <rect x="475" y="430" width="120" height="44" rx="10" fill="#e6ecd3" stroke="#92a35e"/>
+      <text x="535" y="448" text-anchor="middle" font-size="11" font-weight="700" fill="#3a4427">TF-IDF Vector Store</text>
+      <text x="535" y="463" text-anchor="middle" font-size="9" fill="#6b6f60">scikit-learn - 1+2 grams</text>
+
+      <path d="M 595 452 h 25" stroke="#475430" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="620" y="430" width="110" height="44" rx="10" fill="#fbfaf3" stroke="#cdd9a8"/>
+      <text x="675" y="448" text-anchor="middle" font-size="11" font-weight="700" fill="#3a4427">Cosine similarity</text>
+      <text x="675" y="463" text-anchor="middle" font-size="9" fill="#6b6f60">Top-25 longlist</text>
+
+      <rect x="475" y="494" width="255" height="44" rx="10" fill="#181b14"/>
+      <text x="602" y="513" text-anchor="middle" font-size="11" font-weight="700" fill="#f7f5ed">candidates.json - 30 profiles</text>
+      <text x="602" y="527" text-anchor="middle" font-size="9" fill="#cdd9a8">loaded once at startup</text>
+      <path d="M 535 494 v -16" stroke="#92a35e" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrowDashed)"/>
+    </g>
+
+    <path d="M 745 475 h 30" stroke="#475430" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <g filter="url(#softShadow)">
+      <rect x="775" y="385" width="305" height="180" rx="14" fill="#ffffff" stroke="#e3dfcf"/>
+      <rect x="775" y="385" width="305" height="32" rx="14" fill="#475430"/>
+      <text x="795" y="406" font-size="12" font-weight="800" fill="#f7f5ed">STAGE 3 - MATCHER</text>
+      <text x="1060" y="406" text-anchor="end" font-size="10" fill="#cdd9a8">matcher.py</text>
+
+      <rect x="795" y="428" width="265" height="84" rx="10" fill="#e6ecd3" stroke="#92a35e"/>
+      <text x="927" y="444" text-anchor="middle" font-size="11" font-weight="800" fill="#3a4427">Score Engine (deterministic)</text>
+      <g font-size="10" fill="#3a4427">
+        <text x="810" y="462">- Skills</text>      <text x="900" y="462" font-weight="700">45%</text>
+        <text x="950" y="462">- Experience</text>  <text x="1040" y="462" font-weight="700">20%</text>
+        <text x="810" y="478">- Semantic</text>    <text x="900" y="478" font-weight="700">15%</text>
+        <text x="950" y="478">- Domain</text>      <text x="1040" y="478" font-weight="700">10%</text>
+        <text x="810" y="494">- Location</text>    <text x="900" y="494" font-weight="700">10%</text>
+        <text x="950" y="494" font-style="italic" fill="#6b6f60">match_score 0-100</text>
+      </g>
+
+      <path d="M 927 512 v 14" stroke="#475430" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <rect x="795" y="525" width="265" height="35" rx="10" fill="#fbfaf3" stroke="#cdd9a8"/>
+      <text x="927" y="540" text-anchor="middle" font-size="11" font-weight="700" fill="#3a4427">Explainer - Gemini or Templated</text>
+      <text x="927" y="554" text-anchor="middle" font-size="9" fill="#6b6f60">2-3 sentence "why this match"</text>
+    </g>
+
+    <g filter="url(#softShadow)">
+      <rect x="450" y="600" width="300" height="56" rx="14" fill="#181b14"/>
+      <text x="600" y="624" text-anchor="middle" font-size="13" font-weight="800" fill="#f7f5ed">Sort by match_score - Top-K</text>
+      <text x="600" y="643" text-anchor="middle" font-size="10" fill="#cdd9a8">List of MatchedCandidate</text>
+    </g>
+
+    <path d="M 280 565 v 20 h 320 v 16" stroke="#475430" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+    <path d="M 600 565 v 36" stroke="#475430" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+    <path d="M 927 565 v 20 h -327 v 16" stroke="#475430" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+    <g filter="url(#softShadow)">
+      <rect x="135" y="680" width="240" height="100" rx="12" fill="#ffffff" stroke="#e3dfcf" stroke-dasharray="5 3"/>
+      <text x="255" y="704" text-anchor="middle" font-size="12" font-weight="800" fill="#475430">SHARED - llm.py</text>
+      <text x="255" y="722" text-anchor="middle" font-size="10" fill="#6b6f60">Gemini client (google-generativeai)</text>
+      <text x="255" y="737" text-anchor="middle" font-size="10" fill="#6b6f60">.mode = "gemini" or "heuristic"</text>
+      <text x="255" y="755" text-anchor="middle" font-size="10" font-style="italic" fill="#3a4427">Fails open - callers fall back</text>
+      <text x="255" y="770" text-anchor="middle" font-size="9" fill="#6b6f60">key from .env (optional)</text>
+    </g>
+    <path d="M 270 680 v -10 h 10 v -100" stroke="#92a35e" stroke-width="1.2" stroke-dasharray="3 3" fill="none" marker-end="url(#arrowDashed)"/>
+    <path d="M 320 680 v -10 h 290 v -130" stroke="#92a35e" stroke-width="1.2" stroke-dasharray="3 3" fill="none" marker-end="url(#arrowDashed)"/>
+    <path d="M 360 680 v -10 h 567 v -110" stroke="#92a35e" stroke-width="1.2" stroke-dasharray="3 3" fill="none" marker-end="url(#arrowDashed)"/>
+
+    <g filter="url(#softShadow)">
+      <rect x="845" y="680" width="240" height="100" rx="12" fill="#ffffff" stroke="#e3dfcf" stroke-dasharray="5 3"/>
+      <text x="965" y="704" text-anchor="middle" font-size="12" font-weight="800" fill="#475430">SHARED - schemas.py</text>
+      <text x="965" y="722" text-anchor="middle" font-size="10" fill="#6b6f60">Pydantic models</text>
+      <text x="965" y="740" text-anchor="middle" font-size="10" fill="#3a4427">Candidate - ParsedJD - ScoreBreakdown</text>
+      <text x="965" y="756" text-anchor="middle" font-size="10" fill="#3a4427">MatchedCandidate - ScoutResponse</text>
+      <text x="965" y="772" text-anchor="middle" font-size="9" fill="#6b6f60">FastAPI uses these for validation</text>
+    </g>
+  </g>
+
+  <path d="M 600 830 v 30" stroke="#475430" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="615" y="836" width="220" height="20" rx="10" fill="#181b14"/>
+  <text x="725" y="850" text-anchor="middle" font-size="11" font-weight="600" fill="#f7f5ed">ScoutResponse (JSON)</text>
+
+  <g filter="url(#softShadow)">
+    <rect x="380" y="865" width="440" height="40" rx="14" fill="#92a35e"/>
+    <text x="600" y="890" text-anchor="middle" font-size="13" font-weight="800" fill="#1f2515">RANKED, EXPLAINABLE SHORTLIST</text>
+  </g>
+
+  <g transform="translate(80, 870)" font-size="10">
+    <rect x="0" y="0" width="14" height="14" rx="3" fill="#e6ecd3" stroke="#92a35e"/>
+    <text x="20" y="11" fill="#3a4427">LLM-powered (Gemini)</text>
+    <rect x="0" y="20" width="14" height="14" rx="3" fill="#fbfaf3" stroke="#cdd9a8"/>
+    <text x="20" y="31" fill="#3a4427">Deterministic Python</text>
+  </g>
+</svg>
